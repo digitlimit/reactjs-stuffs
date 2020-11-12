@@ -1,36 +1,26 @@
 /* eslint-disable */ 
-
 import React, {Component} from 'react';
+import TodoItem from './TodoItem';
+import PropTypes from 'prop-types';
 
 class Todo extends Component {
 
-    state = {
-        todos: [
-            {
-                id: 1,
-                title: 'Call Mum',
-                completed: false
-            },
-            {
-                id: 2,
-                title: 'Call Dad',
-                completed: false
-            },
-            {
-                id: 3,
-                title: 'Call Wife',
-                completed: false
-            }
-        ]
-    }
-
     render(){
+
+        let todos = this.props.todos.map(function(todo){
+            return <TodoItem key={todo.id} todo={todo} />
+        });
+
         return (
             <div className="Todo">
-                <h1>Todo</h1>
+                {todos}
             </div>
         );
    }
+}
+
+Todo.propTypes = {
+    todos: PropTypes.array.isRequired
 }
 
 export default Todo;
