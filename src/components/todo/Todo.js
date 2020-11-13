@@ -7,8 +7,12 @@ class Todo extends Component {
 
     render(){
 
-        let todos = this.props.todos.map(function(todo){
-            return <TodoItem key={todo.id} todo={todo} />
+        let todos = this.props.todos.map((todo) => {
+            return <TodoItem 
+                markComplete={this.props.markComplete} 
+                key={todo.id} 
+                todo={todo}
+            />
         });
 
         return (

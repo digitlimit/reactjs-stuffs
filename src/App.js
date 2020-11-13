@@ -1,16 +1,16 @@
 /* eslint-disable */ 
 
-import React from 'react';
-import './App.css';
+import React, { Component } from 'react';
 import Todo from './components/todo/Todo';
 
-function App() {
+class App extends Component {
 
-    let todos = [
+  state = {
+    todos : [
       {
           id: 1,
           title: 'Call Mum',
-          completed: false
+          completed: true
       },
       {
           id: 2,
@@ -22,13 +22,26 @@ function App() {
           title: 'Call Wife',
           completed: false
       }
-  ];
+  ]
+  }
 
-  return (
-    <div className="App">
-      <Todo todos={ todos } />
-    </div>
-  );
+  markComplete = (id) => {
+    
+    let newTodos = this.state.todos.map((todo) => {
+      if(todo.id === id) todo.completed = !todo.completed;
+      return todo;
+    });
+
+    this.setState({todos: newTodos });
+  }
+
+  render(){
+    return (
+      <div className="App">
+        <Todo markComplete={ this.markComplete } todos={ this.state.todos } />
+      </div>
+    );
+  }
 }
 
 export default App;
