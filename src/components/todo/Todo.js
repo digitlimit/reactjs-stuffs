@@ -10,6 +10,7 @@ class Todo extends Component {
         let todos = this.props.todos.map((todo) => {
             return <TodoItem 
                 markComplete={this.props.markComplete} 
+                delete={this.props.delete}
                 key={todo.id} 
                 todo={todo}
             />

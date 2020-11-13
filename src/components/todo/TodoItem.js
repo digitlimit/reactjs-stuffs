@@ -24,10 +24,20 @@ class TodoItem extends Component {
                 <p>
                     <input onChange={this.props.markComplete.bind(this, id)} type="checkbox" /> {' '}
                     { title }
+                    <button onClick={this.props.delete.bind(this, id)} style={deleteStyle} >X</button>
                 </p>
             </div>
         )
     }
+}
+
+const deleteStyle = {
+    float: 'right',
+    borderRadius: '50px',
+    background: 'red',
+    width: '30px',
+    height: '30px',
+    border: 'none'
 }
 
 TodoItem.propTypes = {
