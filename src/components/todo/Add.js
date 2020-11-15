@@ -3,16 +3,41 @@ import React, { Component } from 'react';
 
 export class Add extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = this.getInitialState();
+    }
 
-    setTitle(value){
-        console.log(value);
+    getInitialState = () => ({
+        title: ''
+    });
+    
+    resetState = () => {
+        this.setState(this.getInitialState())
+    }  
+      
+    onChange = (e) => {
+        this.setState({[e.target.name] : e.target.value});
+
+        if(this.props.onChange){
+            this.props.onChange(e.target.value, e);
+        }
+    }
+
+    onSubmit = (e) => {
+        e.preventDefault();
+
+        if(this.props.onSubmit){
+            this.props.onSubmit(this.state, e);
+            this.resetState();
+        }
     }
 
     render() {
         return (
-            <form onSubmit={this.ok} style={{display: 'flex'}}>
+            <form onSubmit={this.onSubmit} style={{display: 'flex'}}>
                 <input 
-                    onChange={event => this.setTitle(event.target.value)}
+                    onChange={this.onChange}
                     type="text"
                     name="title" 
                     style={{flex: 10, padding: '10px'}}
