@@ -1,9 +1,10 @@
 /* eslint-disable */
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 function Header(){
 
-    const total = {
+    const all = {
         paddingTop:'35px', 
         paddingLeft: '15px',
         color: '#333'
@@ -24,9 +25,9 @@ function Header(){
     return  (
         <header style={{display: 'flex', justifyContent: 'left'}}>
             <h1>Todo</h1>
-            <div style={total}>Total: 0 </div>
-            <div style={completed}>Completed: 0</div>
-            <div style={pending}>Pending: 0</div>
+            <Link to="/" style={all}>All: 0 </Link>
+            <Link to="/completed" style={completed}>Completed: 0</Link>
+            <Link to="/pending" style={pending}>Pending: 0</Link>
         </header>
     );
 }
