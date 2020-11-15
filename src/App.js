@@ -40,23 +40,24 @@ class App extends Component {
 
   //delete 
   delete = (id) => {
-    this.setState({
-      todos: this.state.todos.filter(item => item.id !== id)
-    })
+    axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`)
+    .then( (res) => this.setState({  
+      todos: this.state.todos.filter(item => item.id !== id) 
+    }));
   }
 
   //add
   add = (todo,e) => {
 
-    todo = {...todo, ...{
-      id: this.uuidv4(),
-      completed: false
-    }};
+    todo.completed = false;
 
-    console.log(todo)
+    axios.post('https://jsonplaceholder.typicode.com/todos', todo)
+    .then( (res) => this.setState({todos: [...this.state.todos, res.data] }) );
+    //.then( res => this.setState({todos: [...this.state.todos, todo.data]}) );
 
-    this.setState({todos : [...this.state.todos, todo]});
-    e.target.reset();
+    
+
+    //e.target.reset();
   }
 
   //completed items
