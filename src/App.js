@@ -2,6 +2,8 @@
 
 import React, { Component } from 'react';
 import Todo from './components/todo/Todo';
+import Header from './components/todo/Header';
+import AddForm from './components/todo/Add';
 
 class App extends Component {
 
@@ -44,6 +46,11 @@ class App extends Component {
   render(){
     return (
       <div className="App">
+
+        <Header />
+
+        <AddForm />
+
         <Todo 
           markComplete={ this.markComplete } 
           delete={this.delete}

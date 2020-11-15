@@ -17,7 +17,7 @@ class Todo extends Component {
         });
 
         return (
-            <div className="Todo">
+            <div>
                 {todos}
             </div>
         );

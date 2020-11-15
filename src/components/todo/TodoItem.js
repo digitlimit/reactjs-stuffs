@@ -20,7 +20,7 @@ class TodoItem extends Component {
         const {id, title} = this.props.todo;
 
         return (
-            <div style={this.getStyle()} className="TodoItem">
+            <div style={this.getStyle()}>
                 <p>
                     <input onChange={this.props.markComplete.bind(this, id)} type="checkbox" /> {' '}
                     { title }
