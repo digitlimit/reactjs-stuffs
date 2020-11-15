@@ -8,6 +8,6 @@ it("renders without crashing", () => {
 
 test('renders learn react link', () => {
   render(<App />);
-  const linkElement = screen.getByText(/Call Dad/i);
+  const linkElement = screen.getByText(/Todo/i);
   expect(linkElement).toBeInTheDocument();
 });
