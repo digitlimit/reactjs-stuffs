@@ -73,9 +73,12 @@ class App extends Component {
   render(){
     return (
       <Router>
-        <div className="App">
+        <div className="App"> 
 
-          <Header  />
+          <Header 
+              completed={this.completed()}
+              pending={this.pending()} 
+          />
 
           <AddForm onSubmit={this.add} />
           
