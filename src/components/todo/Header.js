@@ -26,7 +26,6 @@ function Header(props){
     const {completed, pending} = props;
 
     return  (
-
         <header style={{display: 'flex', justifyContent: 'left'}}>
             <h1>Todo</h1>
             <Link to="/" style={allStyle}>All: {completed.length + pending.length} </Link>
